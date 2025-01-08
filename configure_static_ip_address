@@ -1,0 +1,2 @@
+command to configure a static IP address on "Wired connection 1" with IP address of 192.168.56.11/24
+  sudo nmcli connection modify "Wired connection 1" ipv4.method manual ipv4.address 192.168.56.11/24
