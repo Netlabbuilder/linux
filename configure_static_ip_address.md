@@ -1,10 +1,16 @@
-command to configure a static IP address on "Wired connection 1" with IP address of 192.168.56.11/24:
+- command to configure a static IP address on "Wired connection 1" with IP address of 192.168.56.11/24:
+  ```
   sudo nmcli connection modify "Wired connection 1" ipv4.method manual ipv4.address 192.168.56.11/24
-command to bring the connection down and up:
+  ```
+- command to bring the connection down and up:
+  ```
   sudo nmcli connection down "Wired connection 1"
   sudo nmcli connection up "Wired connection 1"
-command to verify:
+  ```
+- command to verify:
+  ```
   nmcli
   nmcli device status
   nmcli device show
   nmcli connection show
+  ```
