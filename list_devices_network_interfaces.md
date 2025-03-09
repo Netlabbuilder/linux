@@ -1,4 +1,4 @@
-To list all the network interfaces (like wired, wireless, loopback, etc.): use the following commands:
+To list all the network interfaces (like wired, wireless, loopback, etc.), use the following commands:
 - `ip add show`
 ```
 [hungtx@linux ~]$ ip add show
