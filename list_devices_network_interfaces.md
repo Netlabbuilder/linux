@@ -22,6 +22,14 @@ To list all the network interfaces (like wired, wireless, loopback, etc.), use t
     link/ether b6:ed:4c:f6:b0:fd brd ff:ff:ff:ff:ff:ff permaddr 54:27:1e:23:94:3b
 [hungtx@linux ~]$ 
 ```
+- `ip -br add show`
+```
+[hungtx@linux ~]$ ip -br add show
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp2s0f1         UP             192.168.178.59/24 2003:e6:b707:8c00:4216:7eff:fe86:aac1/64 fdd1:1aef:54b9:0:4216:7eff:fe86:aac1/64 fe80::4216:7eff:fe86:aac1/64 
+wlp3s0           DOWN 
+```
+
 - `ifconfig -a`
 ```
 hungtx@linux ~]$ ifconfig -a
