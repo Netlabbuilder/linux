@@ -1,9 +1,10 @@
-# The command prompt symbol ($ or #) indicates the type of user currently logged in:
-# $ (Dollar Sign)
-Used for a regular user (non-root).
-# # (Hash or Pound Sign)
-Used for the root user.
-# To view the definition of your command prompt, use the command: echo $PS1
+## The command prompt symbol ($ or #) indicates the type of user currently logged in:
+
+`$` (Dollar Sign): used for a regular user (non-root).
+
+`#` (Hash or Pound Sign): used for the root user.
+
+## To view the definition of your command prompt, use the command: echo $PS1
 ```
 $ echo $PS1
 
