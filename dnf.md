@@ -13,7 +13,7 @@
   `dnf list --installed`
 - command to list all available packages:\
   `dnf list --available`
-- command to list packages for which newer versions are available:__\
+- command to list packages for which newer versions are available:\
   `dnf list --upgrade`
 
 # Install
