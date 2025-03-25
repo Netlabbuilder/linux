@@ -1,3 +1,8 @@
+**IMPORTANT NOTE**\
+The `ip address add` command is to temporarily set an IP address on a network interface.\
+This means the result of `ip address add` command, and also the results of other `ip` commands are non-persistent. They will be lost after the system is rebooted.\
+Please use **nmcli** or **nmtui** to make the network configuration persistent!
+
 - command to configure a static IP address on "Wired connection 1" with IP address of 192.168.56.11/24:
   ```
   sudo nmcli connection modify "Wired connection 1" ipv4.method manual ipv4.address 192.168.56.11/24
