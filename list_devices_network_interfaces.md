@@ -62,3 +62,51 @@ wlp3s0: flags=4098<BROADCAST,MULTICAST>  mtu 1500
 
 [hungtx@linux ~]$ 
 ```
+- `nmcli device status`
+```
+[hungtx@linux ~]$ nmcli device status
+DEVICE          TYPE      STATE                   CONNECTION 
+enp2s0f1        ethernet  connected               enp2s0f1   
+lo              loopback  connected (externally)  lo         
+wlp3s0          wifi      unavailable             --         
+p2p-dev-wlp3s0  wifi-p2p  unavailable             --         
+[hungtx@linux ~]$ 
+```
+- `nmcli device show enp2s0f1`
+```
+[hungtx@linux ~]$ nmcli device show enp2s0f1
+GENERAL.DEVICE:                         enp2s0f1
+GENERAL.TYPE:                           ethernet
+GENERAL.HWADDR:                         40:16:7E:86:AA:C1
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected)
+GENERAL.CONNECTION:                     enp2s0f1
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/3
+WIRED-PROPERTIES.CARRIER:               on
+IP4.ADDRESS[1]:                         192.168.178.59/24
+IP4.GATEWAY:                            192.168.178.1
+IP4.ROUTE[1]:                           dst = 192.168.178.0/24, nh = 0.0.0.0, mt = 100
+IP4.ROUTE[2]:                           dst = 0.0.0.0/0, nh = 192.168.178.1, mt = 100
+IP4.DNS[1]:                             192.168.178.1
+IP4.DOMAIN[1]:                          fritz.box
+IP6.ADDRESS[1]:                         2003:e6:b707:8c00:4216:7eff:fe86:aac1/64
+IP6.ADDRESS[2]:                         fdd1:1aef:54b9:0:4216:7eff:fe86:aac1/64
+IP6.ADDRESS[3]:                         fe80::4216:7eff:fe86:aac1/64
+IP6.GATEWAY:                            fe80::1eed:6fff:fe53:302c
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 1024
+IP6.ROUTE[2]:                           dst = fdd1:1aef:54b9::/64, nh = ::, mt = 100
+IP6.ROUTE[3]:                           dst = 2003:e6:b707:8c00::/64, nh = ::, mt = 100
+IP6.ROUTE[4]:                           dst = fdd1:1aef:54b9::/64, nh = fe80::1eed:6fff:fe53:302c, mt = 105
+IP6.ROUTE[5]:                           dst = 2003:e6:b707:8c00::/56, nh = fe80::1eed:6fff:fe53:302c, mt = 100
+IP6.ROUTE[6]:                           dst = ::/0, nh = fe80::1eed:6fff:fe53:302c, mt = 100
+IP6.DNS[1]:                             fdd1:1aef:54b9:0:1eed:6fff:fe53:302c
+IP6.DNS[2]:                             2003:e6:b707:8c00:1eed:6fff:fe53:302c
+[hungtx@linux ~]$
+```
+- `nmcli connection show `
+```
+[hungtx@linux ~]$ nmcli connection show 
+NAME        UUID                                  TYPE      DEVICE   
+enp2s0f1    f355eadc-f77b-427d-877d-86ba78b0bb33  ethernet  enp2s0f1 
+lo          9f2d20a6-6dd0-4ec1-8791-119f9bae3753  loopback  lo      
+```
