@@ -8,6 +8,7 @@ The bootloader (GRUB) lists both kernels so you can choose which one to boot int
 To list installed kernels:
 
 - `rpm -q kernel`
+  
   ```
   [hungtx@linux ~]$ rpm -q kernel
   kernel-5.14.0-503.11.1.el9_5.x86_64
@@ -15,6 +16,7 @@ To list installed kernels:
   [hungtx@linux ~]$
   ```
 - `dnf list installed kernel`
+  
   ```
   [hungtx@linux ~]$ dnf list installed kernel
   Installed Packages
@@ -22,14 +24,30 @@ To list installed kernels:
   kernel.x86_64                  5.14.0-503.34.1.el9_5                    @baseos  
   [hungtx@linux ~]$
   ```
+To list installed and available kernels:
+
+- `dnf list kernel`
+  
+  ```
+  [hungtx@linux ~]$ dnf list kernel
+  Last metadata expiration check: 18:23:01 ago on Sat 12 Apr 2025 12:19:15 AM CEST.
+  Installed Packages
+  kernel.x86_64                                                              5.14.0-503.11.1.el9_5                                                               @anaconda
+  kernel.x86_64                                                              5.14.0-503.34.1.el9_5                                                               @baseos  
+  Available Packages
+  kernel.x86_64                                                              5.14.0-503.35.1.el9_5                                                               baseos   
+  [hungtx@linux ~]$
+  ```
 To see which kernel is currently running:
 - `uname -r`
+  
   ```
   [hungtx@linux ~]$ uname -r
   5.14.0-503.11.1.el9_5.x86_64
   [hungtx@linux ~]$
   ```
 - `hostnamectl status`
+  
   ```
   [hungtx@linux ~]$ hostnamectl status
    Static hostname: linux.netlabbuilder.net
@@ -47,6 +65,7 @@ To see which kernel is currently running:
   ```
 To query and list the kernel packages installed on the system, sorted by the most recent installation date:
 - `rpm -q --last kernel`
+  
   ```
   [hungtx@linux ~]$ rpm -q --last kernel
   kernel-5.14.0-503.34.1.el9_5.x86_64           Fri 04 Apr 2025 07:18:19 PM CEST
@@ -55,6 +74,7 @@ To query and list the kernel packages installed on the system, sorted by the mos
   ```
 To query and display kernel packages installed on the system, including name, version, and description... Check the `Install Date:` field for the date the kernel was installed:
 - `pm -qi  kernel`
+  
   ```
   [hungtx@linux ~]$ rpm -qi kernel
   Name        : kernel
