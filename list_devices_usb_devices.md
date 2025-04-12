@@ -1,5 +1,6 @@
 To list all USB devices connected to the system, use the following commands:
 - `lsusb`
+  
   ```
   hungtx@linux ~]$ lsusb
   Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
@@ -13,6 +14,7 @@ To list all USB devices connected to the system, use the following commands:
   [hungtx@linux ~]$
   ```
 - `lsusb -t`
+  
   ```
   [hungtx@linux ~]$ lsusb -t
   /:  Bus 001.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/9p, 480M
