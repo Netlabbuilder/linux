@@ -1,4 +1,4 @@
-To list all devices with a more comprehensive vieww of all connected devices (including USB, PCI, and other hardware), use the following command:
+To list all devices with a more comprehensive vieww of all connected devices (including USB, PCI, and other hardware), use the following commands:
 
 - `sudo lshw`
 
@@ -704,4 +704,87 @@ To list all devices with a more comprehensive vieww of all connected devices (in
          capabilities: i8042
   [hungtx@linux ~]$
   ```
+- `sudo lshw -short`
 
+  ```
+  [hungtx@linux ~]$ sudo lshw -short
+  H/W path         Device      Class          Description
+  =======================================================
+                               system         X550LD (ASUS-NotebookSKU)
+  /0                           bus            X550LD
+  /0/0                         memory         64KiB BIOS
+  /0/7                         processor      Intel(R) Core(TM) i5-4200U CPU @ 1.60GHz
+  /0/7/8                       memory         512KiB L2 cache
+  /0/7/9                       memory         128KiB L1 cache
+  /0/7/a                       memory         3MiB L3 cache
+  /0/b                         memory         12GiB System Memory
+  /0/b/0                       memory         4GiB SODIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+  /0/b/1                       memory         DIMM [empty]
+  /0/b/2                       memory         8GiB SODIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+  /0/b/3                       memory         DIMM [empty]
+  /0/100                       bridge         Haswell-ULT DRAM Controller
+  /0/100/2         /dev/fb0    display        Haswell-ULT Integrated Graphics Controller
+  /0/100/3         card0       multimedia     Haswell-ULT HD Audio Controller
+  /0/100/3/0       input21     input          HDA Intel HDMI HDMI/DP,pcm=3
+  /0/100/3/1       input22     input          HDA Intel HDMI HDMI/DP,pcm=7
+  /0/100/3/2       input23     input          HDA Intel HDMI HDMI/DP,pcm=8
+  /0/100/4                     generic        Haswell-ULT Thermal Subsystem
+  /0/100/14                    bus            8 Series USB xHCI HC
+  /0/100/14/0      usb1        bus            xHCI Host Controller
+  /0/100/14/0/2                generic        Edimax AC600 USB
+  /0/100/14/0/5                multimedia     USB2.0 HD UVC WebCam
+  /0/100/14/0/6                communication  Bluetooth Radio
+  /0/100/14/1      usb3        bus            xHCI Host Controller
+  /0/100/16                    communication  8 Series HECI #0
+  /0/100/1b        card1       multimedia     8 Series HD Audio Controller
+  /0/100/1b/0      input24     input          HDA Intel PCH Mic
+  /0/100/1b/1      input25     input          HDA Intel PCH Headphone
+  /0/100/1c                    bridge         8 Series PCI Express Root Port 1
+  /0/100/1c.2                  bridge         8 Series PCI Express Root Port 3
+  /0/100/1c.2/0    mmc0        bus            RTL8411B PCI Express Card Reader
+  /0/100/1c.2/0.1  enp2s0f1    network        RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller
+  /0/100/1c.3                  bridge         8 Series PCI Express Root Port 4
+  /0/100/1c.3/0    wlp3s0      network        RTL8821AE 802.11ac PCIe Wireless Network Adapter
+  /0/100/1c.4                  bridge         8 Series PCI Express Root Port 5
+  /0/100/1c.4/0                display        GF117M [GeForce 610M/710M/810M/820M / GT 620M/625M/630M/720M]
+  /0/100/1d                    bus            8 Series USB EHCI #1
+  /0/100/1d/1      usb2        bus            EHCI Host Controller
+  /0/100/1d/1/1                bus            Integrated Rate Matching Hub
+  /0/100/1d/1/1/3  input12     input          MOSART Semi. 2.4G Keyboard Mouse
+  /0/100/1f                    bridge         8 Series LPC Controller
+  /0/100/1f/0                  system         PnP device PNP0c01
+  /0/100/1f/1                  system         PnP device PNP0c02
+  /0/100/1f/2                  system         PnP device PNP0b00
+  /0/100/1f/3                  generic        PnP device INT3f0d
+  /0/100/1f/4                  system         PnP device PNP0c02
+  /0/100/1f/5                  system         PnP device PNP0c02
+  /0/100/1f/6                  generic        PnP device ETD0108
+  /0/100/1f/7                  generic        PnP device ATK3001
+  /0/100/1f/8                  system         PnP device PNP0c02
+  /0/100/1f/9                  system         PnP device PNP0c02
+  /0/100/1f/a                  system         PnP device PNP0c02
+  /0/100/1f.2      scsi0       storage        8 Series SATA Controller 1 [AHCI mode]
+  /0/100/1f.2/0    /dev/sda    disk           500GB TOSHIBA MQ01ABF0
+  /0/100/1f.2/0/1  /dev/sda1   volume         99MiB Windows FAT volume
+  /0/100/1f.2/0/2  /dev/sda2   volume         899MiB Windows NTFS volume
+  /0/100/1f.2/0/3  /dev/sda3   volume         127MiB reserved partition
+  /0/100/1f.2/0/4  /dev/sda4   volume         283GiB Windows NTFS volume
+  /0/100/1f.2/0/5              volume         1023MiB EFI partition
+  /0/100/1f.2/0/6  /dev/sda6   volume         63GiB Windows NTFS volume
+  /0/100/1f.2/0/7  /dev/sda7   volume         20GiB Windows NTFS volume
+  /0/100/1f.2/0/8  /dev/sda8   volume         96GiB LVM Physical Volume
+  /0/100/1f.2/1    /dev/cdrom  disk           DVDRAM GUA0N
+  /0/100/1f.3                  bus            8 Series SMBus Controller
+  /0/100/1f.6                  generic        8 Series Thermal
+  /1               input0      input          Lid Switch
+  /2               input1      input          Sleep Button
+  /3               input11     input          ETPS/2 Elantech Touchpad
+  /4               input17     input          Video Bus
+  /5               input18     input          Video Bus
+  /6               input19     input          Asus WMI hotkeys
+  /7               input2      input          Power Button
+  /8               input20     input          PC Speaker
+  /9               input3      input          AT Translated Set 2 keyboard
+  [hungtx@linux ~]$ 
+
+  ```
