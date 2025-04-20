@@ -5,6 +5,32 @@ The bootloader (GRUB) lists both kernels so you can choose which one to boot int
 - AlmaLinux (New Kernel Version) – This is the latest one that just got installed.
 - AlmaLinux (Old Kernel Version) – This is your previous kernel, still available in case something goes wrong with the new one.
 
+The file `/etc/dnf/dnf.conf` is the main configuration file for the DNF package manager.
+It defines global settings and behavior for how DNF performs operations like installing, updating, caching, keeping packages, etc.
+
+- `cat /etc/dnf/dnf.conf`
+  ```
+  [hungtx@linux ~]$ cat /etc/dnf/dnf.conf 
+  [main]
+  gpgcheck=1
+  installonly_limit=3
+  clean_requirements_on_remove=True
+  best=True
+  skip_if_unavailable=False
+
+  ```
+  |Option | Meaning|
+  |-------|--------|
+  |gpgcheck=1	| Ensures GPG signature checks for packages (for security) |
+  |installonly_limit=3	| Keeps only the latest 3 versions of "installonly" packages (like the kernel) |
+  |clean_requirements_on_remove=True | Automatically removes unneeded dependencies when a package is removed |
+  |best=True | DNF will try to install the "best" (newest/highest) version of packages |
+  |skip_if_unavailable=False | if a repository is temporarily unavailable, DNF will fail the whole transaction instead of just skipping that repo |
+
+  When we update a package with dnf, the old version is removed and replaced. But for installonly packages, dnf installs the new version but doesn't remove the old one. This allows us to choose older versions at boot or fall back if needed.
+
+  Examples of installonly packages: `kernel`, `kernel-core`, `kernel-modules`...
+
 To list installed kernels:
 
 - `rpm -q kernel`
