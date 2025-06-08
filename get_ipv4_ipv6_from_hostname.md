@@ -15,42 +15,108 @@ To get the IPv4 and IPv6 addresses of a public domain name on RHEL, use the foll
 [hungtx@localhost ~]$ getent ahosts google.com | awk '/STREAM/ {print $1}'
 2a00:1450:4001:828::200e
 142.250.185.174
-[hungtx@localhost ~]$
+[hungtx@localhost ~]$ getent ahosts google.com | awk '{print $1}' 
+2a00:1450:4001:828::200e
+2a00:1450:4001:828::200e
+2a00:1450:4001:828::200e
+142.250.186.78
+142.250.186.78
+142.250.186.78
+
 ```
 
-To get the IPv6 address of a public domain name on RHEL (Red Hat Enterprise Linux), you can use the following methods:
-1. Using getent
+2. Using `dig`
 
-This method queries the system's Name Service Switch (NSS) configuration:
+```
+[hungtx@linux ~]$ dig A youtube.com +short
+142.250.185.174
+[hungtx@linux ~]$ dig AAAA youtube.com +short
+2a00:1450:4001:800::200e
+[hungtx@linux ~]$ 
+```
 
-getent ahosts example.com | awk '/STREAM/ {print $1}'
+3. Using `host`
 
-This will return both IPv4 and IPv6 addresses. To get only IPv6:
+```
+[hungtx@linux ~]$ host -t A youtube.com
+youtube.com has address 172.217.23.110
+[hungtx@linux ~]$ host -t AAAA youtube.com
+youtube.com has IPv6 address 2a00:1450:4001:800::200e
+[hungtx@linux ~]$ host -a youtube.com
+Trying "youtube.com"
+Trying "youtube.com"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 22991
+;; flags: qr rd ra; QUERY: 1, ANSWER: 8, AUTHORITY: 0, ADDITIONAL: 0
 
-getent ahosts example.com | awk '$1 ~ /:/ {print $1}'
+;; QUESTION SECTION:
+;youtube.com.			IN	ANY
 
-2. Using dig (from bind-utils)
+;; ANSWER SECTION:
+youtube.com.		5388	IN	NS	ns2.google.com.
+youtube.com.		5388	IN	NS	ns1.google.com.
+youtube.com.		14	IN	AAAA	2a00:1450:4001:800::200e
+youtube.com.		58	IN	A	172.217.23.110
+youtube.com.		5388	IN	NS	ns4.google.com.
+youtube.com.		69	IN	HTTPS	1 .
+youtube.com.		5388	IN	NS	ns3.google.com.
+youtube.com.		180	IN	MX	0 smtp.google.com.
 
-If bind-utils is installed, use dig:
+Received 188 bytes from 192.168.178.1#53 in 3 ms
+[hungtx@linux ~]$ host -A youtube.com
+Trying "youtube.com"
+Trying "youtube.com"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 37059
+;; flags: qr rd ra; QUERY: 1, ANSWER: 8, AUTHORITY: 0, ADDITIONAL: 0
 
-dig AAAA example.com +short
+;; QUESTION SECTION:
+;youtube.com.			IN	ANY
 
-3. Using host
+;; ANSWER SECTION:
+youtube.com.		5385	IN	NS	ns2.google.com.
+youtube.com.		5385	IN	NS	ns1.google.com.
+youtube.com.		11	IN	AAAA	2a00:1450:4001:800::200e
+youtube.com.		55	IN	A	172.217.23.110
+youtube.com.		5385	IN	NS	ns4.google.com.
+youtube.com.		66	IN	HTTPS	1 .
+youtube.com.		5385	IN	NS	ns3.google.com.
+youtube.com.		177	IN	MX	0 smtp.google.com.
 
-Another way is using host:
+Received 188 bytes from 192.168.178.1#53 in 5 ms
+[hungtx@linux ~]$ 
+```
 
-host -t AAAA example.com
+4. Using `nslookup`
 
-4. Using nslookup
+```
+hungtx@linux ~]$ nslookup youtube.com
+Server:		192.168.178.1
+Address:	192.168.178.1#53
 
-If nslookup is available:
+Non-authoritative answer:
+Name:	youtube.com
+Address: 172.217.23.110
+Name:	youtube.com
+Address: 2a00:1450:4001:811::200e
 
-nslookup -query=AAAA example.com
+[hungtx@linux ~]$ nslookup -query=A youtube.com
+Server:		192.168.178.1
+Address:	192.168.178.1#53
 
-5. Using ping6
+Non-authoritative answer:
+Name:	youtube.com
+Address: 172.217.23.110
 
-This will try to reach the domain over IPv6 and confirm connectivity:
+[hungtx@linux ~]$ nslookup -query=AAAA youtube.com
+Server:		192.168.178.1
+Address:	192.168.178.1#53
 
-ping6 example.com
+Non-authoritative answer:
+Name:	youtube.com
+Address: 2a00:1450:4001:811::200e
 
-Let me know if you need help installing tools like bind-utils or troubleshooting! 🚀
+[hungtx@linux ~]$ 
+
+```
+
+5. Using `ping -4`, `ping -6` or `ping6`
+
